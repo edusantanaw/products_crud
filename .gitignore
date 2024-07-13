@@ -4,4 +4,4 @@ logs
 yarn.lock
 yarn-error.log
 package-lock.json
-coverage/*
+coverage
