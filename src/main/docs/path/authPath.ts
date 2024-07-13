@@ -1,24 +1,24 @@
 export default {
   post: {
     tags: ["Autenticação"],
-    summary: "API para a criação usuário",
+    summary: "API para autenticar usuário",
     requestBody: {
       required: true,
       content: {
         "application/json": {
           schema: {
-            $ref: "#/schemas/createUser",
+            $ref: "#/schemas/auth",
           },
         },
       },
     },
     responses: {
-      201: {
-        description: "Criado com sucesso",
+      200: {
+        description: "Autenticado com sucesso",
         content: {
           "application/json": {
             schema: {
-              $ref: "#/schemas/user",
+              $ref: "#/schemas/authResponse",
             },
           },
         },

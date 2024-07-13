@@ -1,3 +1,3 @@
+import { authUsecaseFactory } from "./auth";
 import { createUserUsecaseFactory } from "./create";
-
-export { createUserUsecaseFactory };
+export { createUserUsecaseFactory, authUsecaseFactory };

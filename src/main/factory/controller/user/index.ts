@@ -1,3 +1,4 @@
+import { authControllerFactory } from "./authController";
 import { createUserControllerFactory } from "./create";
 
-export { createUserControllerFactory };
+export { createUserControllerFactory, authControllerFactory };

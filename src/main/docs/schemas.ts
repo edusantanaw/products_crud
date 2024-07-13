@@ -37,4 +37,24 @@ export default {
     },
     required: ["email", "password", "name"],
   },
+  auth: {
+    type: "object",
+    properties: {
+      email: {
+        type: "string",
+      },
+      password: {
+        type: "string",
+      },
+    },
+    required: ["email", "password", "name"],
+  },
+  authResponse: {
+    type: "object",
+    properties: {
+      token: {
+        type: "string",
+      },
+    },
+  },
 };
