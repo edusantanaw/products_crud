@@ -1,5 +1,6 @@
 import { UserEntity } from "../../../domain/entities";
 import { ApplicationValidationException } from "../../exceptions/applicationValidationException";
+import { IGenerateHash } from "../../helpers/encrypter";
 import { ICreateRepository } from "../../repositories/create";
 import { ILoadByEmailRepository } from "../../repositories/loadByEmail";
 
@@ -13,17 +14,13 @@ interface ICreateUserRepository
   extends ILoadByEmailRepository<IUser>,
     ICreateRepository<IUser> {}
 
-interface IGenerateHash {
-  generate(value: string): Promise<string>;
-}
-
 export class CreateUserUsecase {
   constructor(
     protected userRepository: ICreateUserRepository,
     protected encrypter: IGenerateHash
   ) {}
 
-  public async create(data: data) {
+  public async create(data: data): Promise<Omit<IUser, "password">> {
     const emailAlreadyInUse = await this.userRepository.loadByEmail(data.email);
     if (emailAlreadyInUse)
       throw new ApplicationValidationException(
@@ -34,7 +31,9 @@ export class CreateUserUsecase {
       ...data,
       password: hashPassword,
     });
-    const createdUser = await this.userRepository.create(userEntity.getUser);
+    const createdUser: Optional<IUser, "password"> =
+      await this.userRepository.create(userEntity.getUser);
+    delete createdUser.password;
     return createdUser;
   }
 }

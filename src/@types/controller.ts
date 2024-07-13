@@ -1,3 +1,3 @@
-export interface IController<In, Out> {
-  handler(data: In): Promise<Out>;
+export interface IController<In> {
+  handler(data: In): Promise<IHttpStatus>;
 }
