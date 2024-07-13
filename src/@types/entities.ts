@@ -6,3 +6,12 @@ type IProduct = {
   createdAt: Date;
   deleted: number;
 };
+
+type IUser = {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    createdAt?: string;
+    deleted: number;
+  };
