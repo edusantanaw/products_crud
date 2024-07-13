@@ -1,5 +1,5 @@
 import express, { type Express } from "express";
-import { dotenv, logger, db } from "./config";
+import { dotenv, logger, db, swagger } from "./config";
 
 dotenv();
 
@@ -10,6 +10,7 @@ class Server {
   private middlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+    swagger(this.app);
   }
 
   private startServer() {
@@ -19,8 +20,8 @@ class Server {
 
   public async bootstrap() {
     try {
-      this.middlewares();
       await db();
+      this.middlewares();
       this.startServer();
     } catch (error) {
       const { message } = error as Error;
