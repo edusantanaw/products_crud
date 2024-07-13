@@ -1,3 +1,7 @@
+import components from "./components";
+import paths from "./paths";
+import schemas from "./schemas";
+
 export default {
   openapi: "3.0.0",
   info: {
@@ -15,4 +19,7 @@ export default {
       description: "End-points relacionados a gerenciamento de produtos",
     },
   ],
+  schemas,
+  paths,
+  components,
 };

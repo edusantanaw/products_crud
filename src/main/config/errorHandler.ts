@@ -5,7 +5,10 @@ export default (error: unknown): IHttpStatus => {
   if (error instanceof ApplicationValidationException) {
     return {
       statusCode: 400,
-      data: error.message,
+      data: {
+        name: error.name,
+        message: error.message,
+      },
     };
   }
   return httpStatusServerError();
