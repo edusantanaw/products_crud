@@ -1,6 +1,7 @@
 import express, { type Express } from "express";
-import dotenv from "./config/dotenv";
-import logger from "./config/logger";
+import { dotenv } from "./config";
+import { logger } from "./config";
+import "./config/sequelize";
 
 dotenv();
 
