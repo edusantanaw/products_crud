@@ -1,7 +1,5 @@
 import express, { type Express } from "express";
-import { dotenv } from "./config";
-import { logger } from "./config";
-import "./config/sequelize";
+import { dotenv, logger, db } from "./config";
 
 dotenv();
 
@@ -19,10 +17,17 @@ class Server {
     this.app.listen(this.PORT, cb);
   }
 
-  public boostrap() {
-    this.middlewares();
-    this.startServer();
+  public async bootstrap() {
+    try {
+      this.middlewares();
+      await db();
+      this.startServer();
+    } catch (error) {
+      const { message } = error as Error;
+      logger.error(message);
+      process.exit(0);
+    }
   }
 }
 
-new Server().boostrap();
+new Server().bootstrap();

@@ -11,6 +11,13 @@ const PASSWORD = process.env.POSTGRES_PASSWORD!;
 const sequelize = new Sequelize(DATABASE, USER, PASSWORD, {
   host: HOST,
   dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+  logging: false,
 });
 
 export default sequelize;
