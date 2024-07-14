@@ -3,6 +3,7 @@ import { dotenv, logger, db, swagger } from "./config";
 import routes from "./routes";
 import { Server as SocketServer } from "socket.io";
 import http from "http";
+import cors from "cors";
 
 dotenv();
 
@@ -11,6 +12,7 @@ class Server {
   private PORT = process.env.PORT ?? 8080;
 
   private middlewares() {
+    this.app.use(cors({ credentials: true, origin: "*" }));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     swagger(this.app);

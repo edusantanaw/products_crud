@@ -20,11 +20,6 @@ export default (router: Router) => {
     authMiddleware,
     expressAdapter(loadAllProductControllerFactory())
   );
-  router.delete(
-    "/product/:id",
-    authMiddleware,
-    expressAdapter(deleteProductControllerFactory())
-  );
   router.get(
     "/product/:id",
     authMiddleware,
@@ -44,4 +39,9 @@ export default (router: Router) => {
     const deleteAllProductsController = deleteAllProductsControllerFactory();
     return deleteAllProductsController.handler(req, res);
   });
+  router.delete(
+    "/product/:id",
+    authMiddleware,
+    expressAdapter(deleteProductControllerFactory())
+  );
 };
