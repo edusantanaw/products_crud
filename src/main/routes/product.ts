@@ -6,6 +6,8 @@ import { updateProductControllerFactory } from "../factory/controller/product/up
 import { loadAllProductControllerFactory } from "../factory/controller/product/loadAll";
 import { deleteProductControllerFactory } from "../factory/controller/product/delete";
 import { loadProductByIdControllerFactory } from "../factory/controller/product/loadById";
+import { deleteAllProductsControllerFactory } from "../factory/controller/product/deleteAll";
+import { createRandomProductsControllerFactory } from "../factory/controller/product/createRandom";
 
 export default (router: Router) => {
   router.post(
@@ -33,4 +35,13 @@ export default (router: Router) => {
     authMiddleware,
     expressAdapter(updateProductControllerFactory())
   );
+  router.post(
+    "/product/random",
+    authMiddleware,
+    expressAdapter(createRandomProductsControllerFactory())
+  );
+  router.delete("/product/all", (req, res) => {
+    const deleteAllProductsController = deleteAllProductsControllerFactory();
+    return deleteAllProductsController.handler(req, res);
+  });
 };

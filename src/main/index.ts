@@ -1,6 +1,8 @@
 import express, { type Express } from "express";
 import { dotenv, logger, db, swagger } from "./config";
 import routes from "./routes";
+import { Server as SocketServer } from "socket.io";
+import http from "http";
 
 dotenv();
 
@@ -17,7 +19,10 @@ class Server {
 
   private startServer() {
     const cb = () => logger.info(`Server running at: ${this.PORT}`);
-    this.app.listen(this.PORT, cb);
+    const server = http.createServer(this.app);
+    const socket = new SocketServer(server);
+    this.app.set("socket", socket);
+    server.listen(this.PORT, cb);
   }
 
   public async bootstrap() {
