@@ -34,40 +34,4 @@ export class UserEntity {
       deleted: this.deleted,
     };
   }
-
-  public get getId() {
-    return this.id;
-  }
-
-  public get getName() {
-    return this.name;
-  }
-
-  public set setName(_name: string) {
-    this.name = _name;
-  }
-
-  public get getPassword() {
-    return this.password;
-  }
-
-  public set setPassword(_password: string) {
-    this.password = _password;
-  }
-
-  public get getEmail() {
-    return this.email;
-  }
-
-  public set setEmail(_email: string) {
-    this.email = _email;
-  }
-
-  public get getDeleted() {
-    return this.deleted;
-  }
-
-  public set setDelted(_deleted: boolean) {
-    this.deleted = _deleted ? 1 : 0;
-  }
 }

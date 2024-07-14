@@ -3,7 +3,7 @@ type IProduct = {
   name: string;
   description: string;
   price: number;
-  createdAt: Date;
+  createdAt?: Date;
   deleted: number;
 };
 

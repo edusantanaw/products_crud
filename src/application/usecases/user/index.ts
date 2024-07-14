@@ -1,3 +1,2 @@
-import { CreateUserUsecase } from "./createUser";
+export { CreateUserUsecase } from "./createUser";
 
-export { CreateUserUsecase };
