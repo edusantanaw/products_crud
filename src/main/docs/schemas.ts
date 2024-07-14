@@ -57,4 +57,53 @@ export default {
       },
     },
   },
+  createProduct: {
+    type: "object",
+    properties: {
+      name: {
+        type: "string",
+      },
+      description: {
+        type: "string",
+      },
+      price: {
+        type: "number",
+      },
+    },
+    required: ["description", "price", "name"],
+  },
+  product: {
+    type: "object",
+    properties: {
+      id: {
+        type: "string"
+      },
+      name: {
+        type: "string",
+      },
+      description: {
+        type: "string",
+      },
+      price: {
+        type: "number",
+      },
+      deleted: {
+        type: "number"
+      },
+      updatedAt: {
+        type: "string"
+      },
+      createdAt: {
+        type: "string"
+      }
+    },
+  },
+  deleted: {
+    type: "object",
+    properties: {
+       message: {
+           type: "string"
+       }
+    }
+  }
 };

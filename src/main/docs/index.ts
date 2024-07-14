@@ -6,7 +6,7 @@ export default {
   openapi: "3.0.0",
   info: {
     title: "LextArt test",
-    description: "Desafio Full Stack desenvolvido pelo Eduardo Santana",
+    description: "Desafio Full Stack desenvolvido por Eduardo Santana",
     version: "1.0.0",
   },
   tags: [
