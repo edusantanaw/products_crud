@@ -7,6 +7,13 @@ function httpStatus(code: number, body?: any) {
 
 const httpStatusSuccess = (body?: any) => httpStatus(200, body);
 const httpStatusCreated = (data?: any) => httpStatus(201, data);
+const httpStatusBadRequest = (data?: any) => httpStatus(400, data);
 const httpStatusServerError = () => httpStatus(500, "Internal Server Error!");
 
-export { httpStatus, httpStatusSuccess, httpStatusCreated, httpStatusServerError };
+export {
+  httpStatus,
+  httpStatusSuccess,
+  httpStatusCreated,
+  httpStatusServerError,
+  httpStatusBadRequest,
+};
