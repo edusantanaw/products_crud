@@ -20,7 +20,7 @@ export class DeleteAllProductsController {
       const socket: Server = req.app.get("socket");
       for (let i = 0; i < products.length; i += DELETE_PER) {
         const current = products
-          .slice(i, i + DELETE_PER - 1)
+          .slice(i, i + DELETE_PER)
           .map((e) => this.deleteProductUsecase.delete(e.id));
 
         const deleteResult = await Promise.allSettled(current);
@@ -29,7 +29,7 @@ export class DeleteAllProductsController {
           .filter((e) => e === "rejected").length;
         if (rejects > 0) logger.error(`${rejects} products delete fail!`);
 
-        const progress = Math.round((i / products.length) * 100);
+        const progress = Math.round(((i + DELETE_PER) / products.length) * 100);
         socket.emit("delete_progress", { progress });
       }
       return res.status(200).json({ message: "All products deleted!" });

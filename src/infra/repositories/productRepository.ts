@@ -5,7 +5,7 @@ export class ProductRepository {
 
   public async create(data: IProduct) {
     const product = await this.repository.create(data);
-    product.save();
+    await product.save();
     return product.dataValues;
   }
 
@@ -29,7 +29,7 @@ export class ProductRepository {
   public async loadAll(data?: { onlyDeleted?: boolean }) {
     const products = await this.repository.findAll({
       where: { deleted: data?.onlyDeleted ? 1 : 0 },
-      order: [["createdAt", "DESC"]],
+      order: [[data?.onlyDeleted ? "updatedAt" : "createdAt", "DESC"]],
     });
     return products.map((e) => e.dataValues);
   }
