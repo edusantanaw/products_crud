@@ -26,8 +26,11 @@ export class ProductRepository {
     return data;
   }
 
-  public async loadAll() {
-    const products = await this.repository.findAll({ where: { deleted: 0 } });
+  public async loadAll(data?: { onlyDeleted?: boolean }) {
+    const products = await this.repository.findAll({
+      where: { deleted: data?.onlyDeleted ? 1 : 0 },
+      order: [["createdAt", "DESC"]],
+    });
     return products.map((e) => e.dataValues);
   }
 }

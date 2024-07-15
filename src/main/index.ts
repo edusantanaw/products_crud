@@ -22,7 +22,12 @@ class Server {
   private startServer() {
     const cb = () => logger.info(`Server running at: ${this.PORT}`);
     const server = http.createServer(this.app);
-    const socket = new SocketServer(server);
+    const socket = new SocketServer(server, {
+      cors: {
+        origin: "*",
+        methods: "*",
+      },
+    });
     this.app.set("socket", socket);
     server.listen(this.PORT, cb);
   }

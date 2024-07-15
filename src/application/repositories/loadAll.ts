@@ -1,3 +1,3 @@
-export interface ILoadAllRepository<T> {
-  loadAll(): Promise<T[]>;
+export interface ILoadAllRepository<Input, T> {
+  loadAll(data?: Input): Promise<T[]>;
 }

@@ -1,10 +1,10 @@
 import { ApplicationValidationException } from "../../application/exceptions";
 import { NotFoundExeption } from "../../application/exceptions/notFoundExeption";
 import { httpStatusServerError } from "../../helpers/http";
+import logger from "./logger";
 
 export default (error: unknown): IHttpStatus => {
-  console.log(error)
-  if (error instanceof ApplicationValidationException) {
+  if (error instanceof ApplicationValidationException)
     return {
       statusCode: 400,
       data: {
@@ -12,8 +12,8 @@ export default (error: unknown): IHttpStatus => {
         message: error.message,
       },
     };
-  }
-  if (error instanceof NotFoundExeption) {
+
+  if (error instanceof NotFoundExeption)
     return {
       statusCode: 404,
       data: {
@@ -21,6 +21,6 @@ export default (error: unknown): IHttpStatus => {
         message: error.message,
       },
     };
-  }
+  logger.error(JSON.stringify(error));
   return httpStatusServerError();
 };

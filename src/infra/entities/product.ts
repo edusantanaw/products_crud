@@ -21,7 +21,7 @@ const ProductModel: ModelDefined<IProduct, IProductCreationAttributes> =
         allowNull: false,
       },
       price: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.FLOAT,
         allowNull: false,
       },
       deleted: {

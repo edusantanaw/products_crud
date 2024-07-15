@@ -11,11 +11,11 @@ export default <In>(controller: IController<In>) => {
         ...req.params,
         ...req.query,
       });
-      logger.info(`${req.ip}-${req.statusCode}-${req.url}`);
+      logger.info(`${req.ip} ${req.method} ${req.url} ${statusCode}`);
       return res.status(statusCode).json(data);
     } catch (error) {
       const { data, statusCode } = errorHandler(error);
-      logger.error(`${req.ip}-${data}`);
+      logger.error(`${req.ip} ${req.method} ${req.url} ${statusCode} ${data}`);
       return res.status(statusCode).json(data);
     }
   };
