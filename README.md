@@ -1,5 +1,7 @@
 # TESTE NODE
 
+Swagger: http://localhost:8080/api-docs/
+
 ## Arquitetura do projeto
 O padrão utilizado busca criar um sistema com baixo nível de acoplamento, ou seja, a aplicação foi dividida em camadas, buscando ter responsabilidades únicas. 
 
