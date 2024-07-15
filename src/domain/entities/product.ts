@@ -25,7 +25,7 @@ export class ProductEntity {
     this.price = data.price;
     if (data.price <= 0)
       throw new EntityValidationException(
-        "price can'be equal or lower than zero!"
+        "O preço dever ser maior que 0!"
       );
   }
 

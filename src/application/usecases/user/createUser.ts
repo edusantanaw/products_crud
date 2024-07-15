@@ -26,7 +26,7 @@ export class CreateUserUsecase {
     const emailAlreadyInUse = await this.userRepository.loadByEmail(data.email);
     if (emailAlreadyInUse)
       throw new ApplicationValidationException(
-        "Already exists a user with this e-mail!"
+        "Já existe um usuario cadastrodo com este e-mail!"
       );
     const hashPassword = await this.encrypter.generate(data.password);
     const userEntity = new UserEntity({

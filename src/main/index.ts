@@ -1,4 +1,3 @@
-import { serve } from 'swagger-ui-express';
 import express, { type Express } from "express";
 import { dotenv, logger, db, swagger } from "./config";
 import routes from "./routes";
@@ -49,7 +48,4 @@ class Server {
     }
   }
 }
-
-const newServer = new Server();
-newServer.bootstrap()
-export default newServer.getApp
+ new Server().bootstrap();

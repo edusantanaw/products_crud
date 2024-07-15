@@ -14,10 +14,10 @@ export class AuthUsecase {
 
   public async auth(email: string, password: string) {
     const user = await this.userRepository.loadByEmail(email);
-    if (!user) throw new NotFoundExeption("User not found!");
+    if (!user) throw new NotFoundExeption("Usuario não encontrado!");
     const isPassValid = await this.encrypter.compare(password, user.password);
     if (!isPassValid)
-      throw new ApplicationValidationException("E-mail / password invalid!");
+      throw new ApplicationValidationException("E-mail / password invalidos!");
     const accessToken = await this.jwtService.generate(user.id);
     return accessToken;
   }

@@ -12,7 +12,7 @@ export class UpdateProductUsecase {
   constructor(protected repository: IProductRepository) {}
   public async update(data: IProduct) {
     const productExists = await this.repository.loadById(data.id!);
-    if (!productExists) throw new NotFoundExeption("Product not found!");
+    if (!productExists) throw new NotFoundExeption("Produto não encontrado!");
     const product = new ProductEntity({
       ...productExists,
       ...data,
