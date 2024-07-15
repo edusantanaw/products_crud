@@ -1,3 +1,4 @@
+import { IProduct } from "../../../@types/entities";
 import { ILoadAllRepository } from "../../repositories/loadAll";
 
 type data = {

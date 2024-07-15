@@ -1,3 +1,4 @@
+import { IUser } from "../../@types/entities";
 import UserModel from "../entities/user";
 
 export class UserRepository {

@@ -1,6 +1,7 @@
 import { AuthUsecase } from "./../../application/usecases/user/auth";
 import { IController } from "../../@types/controller";
 import { httpStatusSuccess } from "../../helpers/http";
+import { IHttpStatus } from "../../@types/http";
 
 type data = {
   email: string;

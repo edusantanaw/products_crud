@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { EntityValidationException } from "../exceptions/entityValidation";
+import { IProduct } from "../../@types/entities";
 
 type data = {
   id?: string;

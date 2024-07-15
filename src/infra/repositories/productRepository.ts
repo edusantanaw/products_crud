@@ -1,3 +1,4 @@
+import { IProduct } from "../../@types/entities";
 import { ProductModel } from "../entities";
 
 export class ProductRepository {

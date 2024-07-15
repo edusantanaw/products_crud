@@ -1,3 +1,4 @@
+import { IUser } from "../../../@types/entities";
 import { ApplicationValidationException } from "../../exceptions";
 import { NotFoundExeption } from "../../exceptions/notFoundExeption";
 import { ICompareHash } from "../../helpers/encrypter";

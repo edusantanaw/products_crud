@@ -1,4 +1,6 @@
 import { IController } from "../../@types/controller";
+import { IProduct } from "../../@types/entities";
+import { IHttpStatus } from "../../@types/http";
 import { UpdateProductUsecase } from "../../application/usecases/product";
 import { httpStatusSuccess } from "../../helpers/http";
 

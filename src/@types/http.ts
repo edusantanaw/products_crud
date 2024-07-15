@@ -1,4 +1,4 @@
-type IHttpStatus = {
+export type IHttpStatus = {
   statusCode: number;
   data: any;
 };

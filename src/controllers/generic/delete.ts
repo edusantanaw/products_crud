@@ -1,4 +1,5 @@
 import { IController } from "../../@types/controller";
+import { IHttpStatus } from "../../@types/http";
 import { httpStatusBadRequest, httpStatusSuccess } from "../../helpers/http";
 
 interface IDeleteUsecase {

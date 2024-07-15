@@ -1,3 +1,4 @@
+import { serve } from 'swagger-ui-express';
 import express, { type Express } from "express";
 import { dotenv, logger, db, swagger } from "./config";
 import routes from "./routes";
@@ -17,6 +18,10 @@ class Server {
     this.app.use(express.json());
     swagger(this.app);
     this.app.use("/api", routes());
+  }
+
+  public get getApp() {
+    return this.app;
   }
 
   private startServer() {
@@ -45,4 +50,6 @@ class Server {
   }
 }
 
-new Server().bootstrap();
+const newServer = new Server();
+newServer.bootstrap()
+export default newServer.getApp

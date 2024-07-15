@@ -1,5 +1,6 @@
 import { DataTypes, ModelDefined, Optional } from "sequelize";
 import { sequelize } from "../../main/config";
+import { IProduct } from "../../@types/entities";
 
 interface IProductCreationAttributes
   extends Optional<IProduct, "id" | "createdAt" | "deleted"> {}

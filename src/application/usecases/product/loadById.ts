@@ -1,3 +1,4 @@
+import { IProduct } from "../../../@types/entities";
 import { NotFoundExeption } from "../../exceptions/notFoundExeption";
 import { ILoadByIdRepository } from "../../repositories/loadById";
 

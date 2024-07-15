@@ -1,4 +1,5 @@
 import { IController } from "../../@types/controller";
+import { IProduct } from "../../@types/entities";
 import { CreateProductUsecase } from "../../application/usecases/product";
 import { httpStatusCreated } from "../../helpers/http";
 

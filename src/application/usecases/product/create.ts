@@ -1,3 +1,4 @@
+import { IProduct } from "../../../@types/entities";
 import { ProductEntity } from "../../../domain/entities/product";
 import { ICreateRepository } from "../../repositories/create";
 

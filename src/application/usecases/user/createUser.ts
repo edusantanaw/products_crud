@@ -1,3 +1,5 @@
+import { IUser } from "../../../@types/entities";
+import { Optional } from "../../../@types/Optional";
 import { UserEntity } from "../../../domain/entities";
 import { ApplicationValidationException } from "../../exceptions/applicationValidationException";
 import { IGenerateHash } from "../../helpers/encrypter";

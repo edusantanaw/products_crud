@@ -1,4 +1,4 @@
-type IProduct = {
+export type IProduct = {
   id: string;
   name: string;
   description: string;
@@ -7,7 +7,7 @@ type IProduct = {
   deleted: number;
 };
 
-type IUser = {
+export type IUser = {
     id: string;
     name: string;
     email: string;

@@ -1,5 +1,6 @@
 import { DataTypes, ModelDefined, Optional } from "sequelize";
 import { sequelize } from "../../main/config";
+import { IUser } from "../../@types/entities";
 
 interface IUserCreationAttributes
   extends Optional<IUser, "id" | "createdAt" | "deleted"> {}

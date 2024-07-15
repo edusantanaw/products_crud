@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --watch --transpile-only --clear ./src/main/index.ts",
-    "test": "jest --passWithNoTests --runInBand --no-cache --watchAll"
+    "test": "jest --passWithNoTests --runInBand --no-cache --watchAll",
+    "vercel-build": "echo test"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

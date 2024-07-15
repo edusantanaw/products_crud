@@ -2,6 +2,7 @@ import { IUpdateRepository } from "./../../repositories/update";
 import { ILoadByIdRepository } from "../../repositories/loadById";
 import { NotFoundExeption } from "../../exceptions/notFoundExeption";
 import { ProductEntity } from "../../../domain/entities/product";
+import { IProduct } from "../../../@types/entities";
 
 interface IProductRepository
   extends ILoadByIdRepository<IProduct>,

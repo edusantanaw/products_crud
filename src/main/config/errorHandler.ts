@@ -1,3 +1,4 @@
+import { IHttpStatus } from "../../@types/http";
 import { ApplicationValidationException } from "../../application/exceptions";
 import { NotFoundExeption } from "../../application/exceptions/notFoundExeption";
 import { httpStatusServerError } from "../../helpers/http";
