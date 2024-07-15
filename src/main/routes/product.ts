@@ -8,11 +8,14 @@ import { deleteProductControllerFactory } from "../factory/controller/product/de
 import { loadProductByIdControllerFactory } from "../factory/controller/product/loadById";
 import { deleteAllProductsControllerFactory } from "../factory/controller/product/deleteAll";
 import { createRandomProductsControllerFactory } from "../factory/controller/product/createRandom";
+import validationMiddleware from "../middlewares/validationMiddleware";
+import product from "../middlewares/validation/product";
 
 export default (router: Router) => {
   router.post(
     "/product",
     authMiddleware,
+    validationMiddleware(product),
     expressAdapter(createProductControllerFactory())
   );
   router.get(
@@ -28,6 +31,7 @@ export default (router: Router) => {
   router.put(
     "/product/:id",
     authMiddleware,
+    validationMiddleware(product),
     expressAdapter(updateProductControllerFactory())
   );
   router.post(
